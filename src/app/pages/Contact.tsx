@@ -1,7 +1,15 @@
+import { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Mail, MapPin, ArrowRight, Phone, MessageSquare, ShieldCheck } from 'lucide-react';
 
 export default function Contact() {
+  useEffect(() => {
+    document.title = "Contact VRN Technologies | Global Workforce Consultation";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute('content', "Get in touch with our global workforce operations teams in North America and Asia Pacific. Accelerate your talent programs today.");
+    }
+  }, []);
   return (
     <section id="contact" className="relative py-32 px-6 lg:px-8 bg-white min-h-screen pt-40">
       {/* Background Subtle Elements */}

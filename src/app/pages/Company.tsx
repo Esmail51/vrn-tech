@@ -1,14 +1,23 @@
+import { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, Globe, Shield, Award, Users2, Landmark, CheckCircle, GraduationCap, Heart, Star, Linkedin } from 'lucide-react';
 import { Link } from 'react-router';
 import globalOperations from '../../imports/global_operations.png';
 import abstractRays from '../../imports/abstract_rays.png';
 import ceoHeadshot from '../../imports/NaveenValeti-Black (1).jpg';
-import opsHeadshot from '../../imports/Screenshot_20240422_094848_Facebook (1).jpg';
+import opsHeadshot from '../../imports/Julie Gerrard 2026 Headshot.png';
 import ctoHeadshot from '../../imports/02 GV1A1460.jpg.jpeg';
 import evolutionChart from '../../imports/evolution_chart.png';
 
 export default function Company() {
+  useEffect(() => {
+    document.title = "About VRN Technologies | Redefining the Enterprise Workforce";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute('content', "Learn about VRN Technologies' history, milestones, executive leadership team, and our commitment to community development and giving back.");
+    }
+  }, []);
+
   const leadership = [
     {
       name: 'Naveen Valeti',
@@ -89,7 +98,7 @@ export default function Company() {
       {/* ─── Hero Section ─── */}
       <section className="relative w-full overflow-hidden bg-slate-900" style={{ height: '550px' }}>
         <div className="absolute inset-0 z-0 opacity-40">
-           <img
+          <img
             src={abstractRays}
             alt="About VRN"
             className="w-full h-full object-cover object-center mix-blend-overlay"
@@ -128,7 +137,7 @@ export default function Company() {
                 <div className="w-8 h-px bg-ent-gold" /> Who We Are
               </div>
               <h2 className="text-3xl lg:text-5xl font-light text-slate-900 tracking-tight uppercase mb-6 leading-tight">
-                Redefining the <br/><span className="font-bold">Enterprise Workforce</span>
+                Redefining the <br /><span className="font-bold">Enterprise Workforce</span>
               </h2>
               <p className="text-slate-600 font-light leading-relaxed text-lg max-w-2xl">
                 VRN Technologies was founded on a simple but powerful observation: enterprise organizations were being underserved by the staffing industry. They needed partners who understood procurement compliance, not just candidate pipelines. Partners who could operate inside complex MSP and VMS environments, not around them. Partners who brought the rigor of enterprise operations to every engagement, not just the speed of a placement desk. That gap is what VRN was built to close — and has been closing for over 18 years, from Cedar Park, Texas to Hyderabad, India, for clients ranging from Fortune 500 enterprises to high-growth technology organizations.
@@ -137,12 +146,12 @@ export default function Company() {
                 VRN is not a recruiting firm that added technology. We are a workforce intelligence company that has embedded human expertise at every stage where AI alone isn't enough. Our model combines deep technical sourcing, MSP program management, VMS configuration, and automated governance workflows — unified under a single accountable partner. Where AI identifies and ranks, VRN validates and delivers. That combination is what separates a successful placement from a successful program. Our hybrid model connects the intelligence of AI matching with the accountability of human verification.
               </p>
             </div>
-            
+
             <div className="lg:col-span-5 relative">
               <div className="border border-slate-200 p-2 bg-white relative z-10 shadow-xl">
-                <img 
-                  src={globalOperations} 
-                  alt="VRN Operations Office" 
+                <img
+                  src={globalOperations}
+                  alt="VRN Operations Office"
                   className="w-full h-auto object-cover"
                 />
               </div>
@@ -250,9 +259,9 @@ export default function Company() {
             {/* Evolution chart image */}
             <div className="lg:col-span-5 relative">
               <div className="border border-slate-200 p-2 bg-white relative z-10 shadow-xl rounded-2xl overflow-hidden">
-                <img 
-                  src={evolutionChart} 
-                  alt="Talent Growth & Scaling Dashboard" 
+                <img
+                  src={evolutionChart}
+                  alt="Talent Growth & Scaling Dashboard"
                   className="w-full h-auto object-cover"
                 />
               </div>
@@ -343,19 +352,19 @@ export default function Company() {
             {leadership.map((lead, idx) => (
               <div key={idx} className="space-y-6">
                 <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-slate-200 shadow-sm relative group">
-                  <img 
-                    src={lead.image} 
-                    alt={lead.name} 
+                  <img
+                    src={lead.image}
+                    alt={lead.name}
                     className={`w-full h-full object-cover ${lead.pos || 'object-center'}`}
                   />
                 </div>
                 <div>
                   <div className="flex items-center gap-3">
                     <h3 className="text-xl font-bold text-slate-900">{lead.name}</h3>
-                    <a 
-                      href={lead.linkedin} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
+                    <a
+                      href={lead.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-slate-400 hover:text-ent-gold transition-colors"
                       title={`${lead.name} LinkedIn Profile`}
                     >
@@ -377,7 +386,7 @@ export default function Company() {
       <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-16">
           <div className="grid lg:grid-cols-12 gap-16 items-start">
-            
+
             {/* Left side */}
             <div className="lg:col-span-7 space-y-12">
               <div>
@@ -388,7 +397,7 @@ export default function Company() {
                   Clients & <span className="font-bold">Case Studies</span>
                 </h2>
               </div>
-              
+
               <div className="space-y-8">
                 <div className="border-l border-slate-200 pl-6 space-y-2">
                   <h4 className="text-base font-bold text-slate-900">Global SI Delivery Scale</h4>

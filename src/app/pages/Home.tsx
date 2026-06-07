@@ -90,6 +90,14 @@ export default function Home() {
   const [currentHeroImgIndex, setCurrentHeroImgIndex] = useState(0);
 
   useEffect(() => {
+    document.title = "VRN Technologies | Enterprise Workforce Operations Powered by AI";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute('content', 'VRN Technologies delivers specialized talent networks, AI-powered workforce intelligence, Managed Service Programs (MSP), and Vendor Management Systems (VMS) built to scale.');
+    }
+  }, []);
+
+  useEffect(() => {
     const timer = setInterval(() => {
       setCurrentHeroImgIndex((prev) => (prev + 1) % heroImages.length);
     }, 5000);

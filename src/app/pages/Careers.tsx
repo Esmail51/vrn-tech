@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, Briefcase, FileText, CheckCircle2, Star, Cpu } from 'lucide-react';
 import { Link } from 'react-router';
@@ -5,6 +6,14 @@ import abstractRays from '../../imports/abstract_rays.png';
 import digTalent from '../../imports/digital_talent.png';
 
 export default function Careers() {
+  useEffect(() => {
+    document.title = "Careers at VRN Technologies | Join the Talent Network";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute('content', "Explore active contract positions and full-time enterprise opportunities with top-tier brands through the VRN Talent Network.");
+    }
+  }, []);
+
   const openRoles = [
     {
       title: 'Senior AWS DevOps Architect',
