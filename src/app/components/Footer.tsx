@@ -113,10 +113,14 @@ export default function Footer() {
               © 2026 VRN Technologies. High-Performance Workforce Solutions. | Powered by <a href="https://DigiAcceron.com" target="_blank" rel="noopener noreferrer" className="hover:text-ent-gold transition-colors">DigiAcceron.com</a>
             </p>
             <div className="flex gap-8">
-              {['Privacy Policy', 'Terms', 'Compliance'].map((link, i) => (
-                <a key={i} href="#" className="text-xs text-slate-400 font-medium hover:text-ent-gold transition-colors">
-                  {link}
-                </a>
+              {[
+                { name: 'Privacy Policy', path: '/privacy' },
+                { name: 'Terms', path: '/terms' },
+                { name: 'Compliance', path: '/compliance' }
+              ].map((link, i) => (
+                <Link key={i} to={link.path} className="text-xs text-slate-400 font-medium hover:text-ent-gold transition-colors">
+                  {link.name}
+                </Link>
               ))}
             </div>
           </div>

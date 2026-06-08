@@ -11,6 +11,9 @@ import Company from './pages/Company';
 import Careers from './pages/Careers';
 import Apply from './pages/Apply';
 import ResourceRequest from './pages/ResourceRequest';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import Terms from './pages/Terms';
+import Compliance from './pages/Compliance';
 
 import { useEffect } from 'react';
 import { useLocation } from 'react-router';
@@ -41,6 +44,9 @@ export default function App() {
           <Route path="/careers" element={<Careers />} />
           <Route path="/apply" element={<Apply />} />
           <Route path="/resources/request" element={<ResourceRequest />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/compliance" element={<Compliance />} />
         </Routes>
       </Layout>
     </Router>

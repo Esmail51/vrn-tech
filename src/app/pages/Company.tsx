@@ -139,11 +139,11 @@ export default function Company() {
               <h2 className="text-3xl lg:text-5xl font-light text-slate-900 tracking-tight uppercase mb-6 leading-tight">
                 Redefining the <br /><span className="font-bold">Enterprise Workforce</span>
               </h2>
-              <p className="text-slate-600 font-light leading-relaxed text-lg max-w-2xl">
-                VRN Technologies was founded on a simple but powerful observation: enterprise organizations were being underserved by the staffing industry. They needed partners who understood procurement compliance, not just candidate pipelines. Partners who could operate inside complex MSP and VMS environments, not around them. Partners who brought the rigor of enterprise operations to every engagement, not just the speed of a placement desk. That gap is what VRN was built to close — and has been closing for over 18 years, from Cedar Park, Texas to Hyderabad, India, for clients ranging from Fortune 500 enterprises to high-growth technology organizations.
+              <p className="text-slate-500 font-light leading-relaxed text-lg max-w-2xl">
+                VRN Technologies was founded on a simple but powerful observation: enterprise organizations were being underserved by the staffing industry. They needed partners who understood procurement compliance, not just candidate pipelines. Partners who could operate inside complex MSP and VMS environments, not around them. Partners who brought the rigor of enterprise operations to every engagement, not just the speed of a placement desk.
               </p>
-              <p className="text-slate-500 font-light leading-relaxed max-w-2xl">
-                VRN is not a recruiting firm that added technology. We are a workforce intelligence company that has embedded human expertise at every stage where AI alone isn't enough. Our model combines deep technical sourcing, MSP program management, VMS configuration, and automated governance workflows — unified under a single accountable partner. Where AI identifies and ranks, VRN validates and delivers. That combination is what separates a successful placement from a successful program. Our hybrid model connects the intelligence of AI matching with the accountability of human verification.
+              <p className="text-slate-500 font-light leading-relaxed text-lg max-w-2xl">
+                That gap is what VRN was built to close — and has been closing for over 18 years. From the heart of Texas to our delivery teams spanning two continents, we have grown alongside our clients — supporting Fortune 500 enterprises, top-tier financial institutions, and high-growth technology organizations with the same commitment we had on day one: show up, deliver, and never cut corners on compliance or quality. That hasn't changed. It never will.
               </p>
             </div>
 
