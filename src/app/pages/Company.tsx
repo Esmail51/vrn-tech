@@ -37,10 +37,10 @@ export default function Company() {
     },
     {
       name: 'Sandeep Kumar Polkam',
-      role: 'VP of Global Delivery & Technology Operations',
+      role: 'Director of Staffing Operations',
       image: ctoHeadshot,
       pos: 'object-[center_top]',
-      bio: 'VP of Global Delivery & Technology Operations. Manages global delivery centers across the US and India, overseeing the engineering of VRN\'s AI matching workflows and operational compliance frameworks.',
+      bio: 'Director of Staffing Operations at VRN Technologies. Leads end-to-end staffing delivery operations, driving workforce placement strategies, operational efficiency, and compliance across domestic and global programs.',
       linkedin: 'https://www.linkedin.com/in/sandeep-kumar-polkam-80ba055b/'
     }
   ];
