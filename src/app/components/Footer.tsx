@@ -118,9 +118,9 @@ export default function Footer() {
                 { name: 'Terms', path: '/terms' },
                 { name: 'Compliance', path: '/compliance' }
               ].map((link, i) => (
-                <Link key={i} to={link.path} className="text-xs text-slate-400 font-medium hover:text-ent-gold transition-colors">
+                <a key={i} href={link.path} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-400 font-medium hover:text-ent-gold transition-colors">
                   {link.name}
-                </Link>
+                </a>
               ))}
             </div>
           </div>
