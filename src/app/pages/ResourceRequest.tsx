@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import { CheckCircle2, ArrowRight, ShieldCheck, Mail } from 'lucide-react';
 import { Link } from 'react-router';
+import { sendWeb3Form } from '../utils/emailService';
 
 export default function ResourceRequest() {
   const [submitted, setSubmitted] = useState(false);
@@ -14,22 +15,40 @@ export default function ResourceRequest() {
   const [resourceRequested, setResourceRequested] = useState('VMS Resume Formatting Tips');
   const [activelyLooking, setActivelyLooking] = useState('Actively Looking');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
 
-    const subject = encodeURIComponent(`VRN Candidate Resource Request - ${resourceRequested}`);
-    const body = encodeURIComponent(
-      `Name: ${firstName} ${lastName}\n` +
-      `Email: ${email}\n` +
-      `Phone: ${phone || 'Not Provided'}\n` +
-      `Current Role: ${currentRole}\n` +
-      `Primary Skill: ${primarySkill}\n` +
-      `Resource Requested: ${resourceRequested}\n` +
-      `Actively Looking: ${activelyLooking}\n\n` +
-      `Please send me the requested resource.`
-    );
-    window.location.href = `mailto:sales@vrntech.us?subject=${subject}&body=${body}`;
+    const subject = `VRN Candidate Resource Request - ${resourceRequested}`;
+
+    const emailResult = await sendWeb3Form({
+      name: `${firstName} ${lastName}`.trim(),
+      email,
+      phone: phone || 'Not Provided',
+      subject,
+      current_role: currentRole,
+      primary_skill: primarySkill,
+      resource_requested: resourceRequested,
+      actively_looking: activelyLooking,
+      form_type: 'Candidate Resource Request',
+      message: `Name: ${firstName} ${lastName}\nEmail: ${email}\nPhone: ${phone || 'Not Provided'}\nRole: ${currentRole}\nSkill: ${primarySkill}\nResource: ${resourceRequested}\nStatus: ${activelyLooking}`,
+    });
+
+    if (!emailResult.success) {
+      console.warn('Web3Forms returned failure for ResourceRequest, falling back to mailto:', emailResult);
+      const mailtoSubject = encodeURIComponent(subject);
+      const body = encodeURIComponent(
+        `Name: ${firstName} ${lastName}\n` +
+        `Email: ${email}\n` +
+        `Phone: ${phone || 'Not Provided'}\n` +
+        `Current Role: ${currentRole}\n` +
+        `Primary Skill: ${primarySkill}\n` +
+        `Resource Requested: ${resourceRequested}\n` +
+        `Actively Looking: ${activelyLooking}\n\n` +
+        `Please send me the requested resource.`
+      );
+      window.location.href = `mailto:sales@vrntech.us?subject=${mailtoSubject}&body=${body}`;
+    }
   };
 
   return (

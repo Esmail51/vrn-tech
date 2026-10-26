@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import { motion } from 'motion/react';
 import { UploadCloud, CheckCircle2, ArrowRight, X, AlertTriangle } from 'lucide-react';
+import { sendWeb3Form } from '../utils/emailService';
 
 export default function Apply() {
   const [submitted, setSubmitted] = useState(false);
@@ -44,20 +45,36 @@ export default function Apply() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
 
-    const subject = encodeURIComponent(`VRN Talent Network Registration - ${name}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\n` +
-      `Email: ${email}\n` +
-      `Specialty: ${specialty}\n` +
-      `LinkedIn/Portfolio: ${linkedin || 'Not Provided'}\n` +
-      `Attached Resume Name: ${file ? file.name : 'None'}\n\n` +
-      `Please review my registration for active and upcoming roles.`
-    );
-    window.location.href = `mailto:sales@vrntech.us?subject=${subject}&body=${body}`;
+    const subject = `VRN Talent Network Registration - ${name}`;
+
+    const emailResult = await sendWeb3Form({
+      name,
+      email,
+      subject,
+      specialty,
+      linkedin: linkedin || 'Not Provided',
+      attached_resume: file ? file.name : 'None',
+      form_type: 'Talent Network Registration',
+      message: `Applicant Name: ${name}\nSpecialty: ${specialty}\nLinkedIn: ${linkedin || 'Not Provided'}\nResume: ${file ? file.name : 'None'}`,
+    });
+
+    if (!emailResult.success) {
+      console.warn('Web3Forms returned failure for Apply form, falling back to mailto:', emailResult);
+      const mailtoSubject = encodeURIComponent(subject);
+      const body = encodeURIComponent(
+        `Name: ${name}\n` +
+        `Email: ${email}\n` +
+        `Specialty: ${specialty}\n` +
+        `LinkedIn/Portfolio: ${linkedin || 'Not Provided'}\n` +
+        `Attached Resume Name: ${file ? file.name : 'None'}\n\n` +
+        `Please review my registration for active and upcoming roles.`
+      );
+      window.location.href = `mailto:sales@vrntech.us?subject=${mailtoSubject}&body=${body}`;
+    }
   };
 
   return (

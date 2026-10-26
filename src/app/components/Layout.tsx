@@ -2,6 +2,7 @@ import { ReactNode, useEffect } from 'react';
 import { useLocation } from 'react-router';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import SynergyPopup from './SynergyPopup';
 
 interface LayoutProps {
   children: ReactNode;
@@ -26,6 +27,7 @@ export default function Layout({ children }: LayoutProps) {
         {children}
       </main>
       <Footer />
+      <SynergyPopup />
     </div>
   );
 }

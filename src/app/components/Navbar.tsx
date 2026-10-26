@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, ChevronDown, Users, Briefcase, BarChart3, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router';
 import LogoMark from './LogoMark';
+import SynergyTopBanner from './SynergyTopBanner';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -25,12 +26,14 @@ export default function Navbar() {
   ];
 
   return (
-    <motion.nav
+    <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className="fixed top-0 w-full z-50 bg-white border-b border-slate-200 py-4 shadow-sm"
+      className="fixed top-0 w-full z-50 shadow-xs"
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <SynergyTopBanner />
+      <nav className="w-full bg-white border-b border-slate-200 py-4">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <Link to="/" onClick={() => setMobileMenuOpen(false)} className="block">
             <LogoMark size="sm" />
@@ -120,56 +123,54 @@ export default function Navbar() {
         </button>
       </div>
     </div>
+  </nav>
 
-      {/* Mobile Menu */ }
-  <AnimatePresence>
-    {mobileMenuOpen && (
-      <motion.div
-        initial={{ opacity: 0, x: '100%' }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: '100%' }}
-        className="fixed inset-0 top-[96px] bg-white lg:hidden z-50 overflow-y-auto"
-      >
-        <div className="px-8 py-12 space-y-10">
-          <div className="space-y-6">
-            <div className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400">Talent Offerings</div>
-            {solutions.map((item, i) => (
-              <Link
-                key={i}
-                to={item.path}
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-4 p-2"
-              >
-                <item.icon className="text-ent-gold" size={20} />
-                <span className="text-sm font-black uppercase tracking-widest text-slate-900">{item.label}</span>
-              </Link>
-            ))}
+    {/* Mobile Menu */}
+    <AnimatePresence>
+      {mobileMenuOpen && (
+        <motion.div
+          initial={{ opacity: 0, x: '100%' }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: '100%' }}
+          className="fixed inset-0 top-[110px] bg-white lg:hidden z-50 overflow-y-auto"
+        >
+          <div className="px-8 py-12 space-y-10">
+            <div className="space-y-6">
+              <div className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400">Talent Offerings</div>
+              {solutions.map((item, i) => (
+                <Link
+                  key={i}
+                  to={item.path}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center gap-4 p-2"
+                >
+                  <item.icon className="text-ent-gold" size={20} />
+                  <span className="text-sm font-black uppercase tracking-widest text-slate-900">{item.label}</span>
+                </Link>
+              ))}
+            </div>
+
+            <div className="h-px bg-slate-100" />
+
+            <div className="space-y-6">
+              <Link to="/workforce-operations" onClick={() => setMobileMenuOpen(false)} className="block text-sm font-black uppercase tracking-widest text-slate-900">Workforce Operations</Link>
+              <Link to="/talent-network" onClick={() => setMobileMenuOpen(false)} className="block text-sm font-black uppercase tracking-widest text-slate-900">Talent Network</Link>
+              <Link to="/company" onClick={() => setMobileMenuOpen(false)} className="block text-sm font-black uppercase tracking-widest text-slate-900">Company</Link>
+              <Link to="/careers" onClick={() => setMobileMenuOpen(false)} className="block text-sm font-black uppercase tracking-widest text-slate-900">Careers</Link>
+            </div>
+
+            <Link
+              to="/contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block w-full py-5 bg-slate-900 text-white text-center rounded-none text-[10px] font-black uppercase tracking-widest"
+            >
+              Request Talent
+            </Link>
           </div>
-
-          <div className="h-px bg-slate-100" />
-
-          <div className="space-y-6">
-            <Link to="/workforce-operations" onClick={() => setMobileMenuOpen(false)} className="block text-sm font-black uppercase tracking-widest text-slate-900">Workforce Operations</Link>
-            <Link to="/talent-network" onClick={() => setMobileMenuOpen(false)} className="block text-sm font-black uppercase tracking-widest text-slate-900">Talent Network</Link>
-            <Link to="/company" onClick={() => setMobileMenuOpen(false)} className="block text-sm font-black uppercase tracking-widest text-slate-900">Company</Link>
-            <Link to="/careers" onClick={() => setMobileMenuOpen(false)} className="block text-sm font-black uppercase tracking-widest text-slate-900">Careers</Link>
-          </div>
-
-          <Link
-            to="/contact"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block w-full py-5 bg-slate-900 text-white text-center rounded-none text-[10px] font-black uppercase tracking-widest"
-          >
-            Request Talent
-          </Link>
-        </div>
-      </motion.div>
-    )}
-  </AnimatePresence>
-
-
-
-    </motion.nav >
+        </motion.div>
+      )}
+    </AnimatePresence>
+  </motion.header>
   );
 }
 
