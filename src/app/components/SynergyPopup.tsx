@@ -245,7 +245,7 @@ export default function SynergyPopup({ forceOpen, onClose }: SynergyPopupProps) 
     },
     {
       initials: 'SP',
-      name: 'Sandeep Polkam',
+      name: 'Sandeep Kumar Polkam',
       role: 'Director of Staffing Operations (Recruitment and Delivery)',
       image: sandeepHeadshot,
       linkedin: 'https://www.linkedin.com/in/sandeep-kumar-polkam-80ba055b/',
