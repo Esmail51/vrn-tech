@@ -8,6 +8,7 @@ import ceoHeadshot from '../../imports/NaveenValeti-Black (1).jpg';
 import opsHeadshot from '../../imports/Julie Gerrard 2026 Headshot.png';
 import ctoHeadshot from '../../imports/02 GV1A1460.jpg.jpeg';
 import evolutionChart from '../../imports/evolution_chart.png';
+import { ARTICLES } from '../data/articles';
 
 export default function Company() {
   useEffect(() => {
@@ -37,7 +38,7 @@ export default function Company() {
     },
     {
       name: 'Sandeep Kumar Polkam',
-      role: 'Director of Staffing Operations',
+      role: 'Director of Staffing Operations (Recruitment and Delivery)',
       image: ctoHeadshot,
       pos: 'object-[center_top]',
       bio: 'Director of Staffing Operations at VRN Technologies. Leads end-to-end staffing delivery operations, driving workforce placement strategies, operational efficiency, and compliance across domestic and global programs.',
@@ -376,6 +377,82 @@ export default function Company() {
                 <p className="text-sm text-slate-500 font-light leading-relaxed">
                   {lead.bio}
                 </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Executive Insights & Articles Section ─── */}
+      <section className="py-24 bg-white border-t border-slate-100">
+        <div className="max-w-7xl mx-auto px-6 lg:px-16">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
+            <div>
+              <div className="flex items-center gap-3 text-xs font-black text-ent-gold uppercase tracking-[0.5em] mb-4">
+                <div className="w-8 h-px bg-ent-gold" /> Executive Insights
+              </div>
+              <h2 className="text-3xl lg:text-4xl font-light text-slate-900 tracking-tight uppercase">
+                Articles & <span className="font-bold">Perspectives</span>
+              </h2>
+            </div>
+            <Link
+              to="/insights"
+              className="inline-flex items-center gap-2 text-xs font-black uppercase text-slate-900 hover:text-ent-gold transition-colors tracking-widest shrink-0"
+            >
+              View All Articles
+              <ArrowRight size={14} />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {ARTICLES.map((article) => (
+              <div
+                key={article.slug}
+                className="bg-slate-50 border border-slate-200 rounded-3xl p-8 hover:border-slate-300 hover:shadow-lg transition-all flex flex-col justify-between group"
+              >
+                <div>
+                  <div className="text-[10px] font-black uppercase tracking-widest text-ent-gold mb-3">
+                    {article.category}
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug mb-3">
+                    <Link to={`/insights/${article.slug}`}>
+                      {article.title}
+                    </Link>
+                  </h3>
+                  <p className="text-sm text-slate-500 font-light line-clamp-3 mb-6">
+                    {article.description}
+                  </p>
+                </div>
+
+                <div className="pt-4 border-t border-slate-200 flex items-center justify-between">
+                  <div className="flex items-center gap-2.5">
+                    <img
+                      src={article.author.image}
+                      alt={article.author.name}
+                      className="w-8 h-8 rounded-full object-cover"
+                    />
+                    <div>
+                      <a
+                        href={article.author.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs font-bold text-slate-900 hover:text-blue-600 flex items-center gap-1 transition-colors"
+                      >
+                        {article.author.name}
+                        <Linkedin size={10} className="text-blue-600" />
+                      </a>
+                      <span className="text-[10px] text-slate-400">{article.date}</span>
+                    </div>
+                  </div>
+
+                  <Link
+                    to={`/insights/${article.slug}`}
+                    className="text-xs font-black uppercase tracking-wider text-slate-900 group-hover:text-ent-gold transition-colors inline-flex items-center gap-1"
+                  >
+                    Read
+                    <ArrowRight size={12} />
+                  </Link>
+                </div>
               </div>
             ))}
           </div>

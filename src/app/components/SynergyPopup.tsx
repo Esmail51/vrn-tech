@@ -246,7 +246,7 @@ export default function SynergyPopup({ forceOpen, onClose }: SynergyPopupProps) 
     {
       initials: 'SP',
       name: 'Sandeep Polkam',
-      role: 'Account Manager',
+      role: 'Director of Staffing Operations (Recruitment and Delivery)',
       image: sandeepHeadshot,
       linkedin: 'https://www.linkedin.com/in/sandeep-kumar-polkam-80ba055b/',
     },
@@ -521,9 +521,9 @@ export default function SynergyPopup({ forceOpen, onClose }: SynergyPopupProps) 
             {teamMembers.map((member) => (
               <div
                 key={member.name}
-                className="bg-white border border-slate-200 rounded-xl p-3 flex items-center justify-between gap-3 shadow-xs hover:border-slate-300 transition-all"
+                className="bg-white border border-slate-200 rounded-xl p-3 flex items-center justify-between gap-2 shadow-xs hover:border-slate-300 transition-all"
               >
-                <div className="flex items-center gap-2.5 min-w-0">
+                <div className="flex items-center gap-2.5 min-w-0 flex-1">
                   <div className="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 text-slate-800 font-bold text-xs flex items-center justify-center shrink-0 overflow-hidden">
                     {member.image ? (
                       <img
@@ -535,8 +535,8 @@ export default function SynergyPopup({ forceOpen, onClose }: SynergyPopupProps) 
                       member.initials
                     )}
                   </div>
-                  <div className="min-w-0">
-                    <h4 className="text-xs sm:text-sm font-bold text-slate-900 truncate">
+                  <div className="min-w-0 flex-1">
+                    <h4 className="text-xs sm:text-[13px] font-bold text-slate-900 leading-snug break-words">
                       {member.name}
                     </h4>
                     <p className="text-[11px] leading-tight text-slate-500 mt-0.5">{member.role}</p>

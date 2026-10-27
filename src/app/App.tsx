@@ -14,6 +14,8 @@ import ResourceRequest from './pages/ResourceRequest';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Terms from './pages/Terms';
 import Compliance from './pages/Compliance';
+import Insights from './pages/Insights';
+import ArticleDetail from './pages/ArticleDetail';
 
 import { useEffect } from 'react';
 import { useLocation } from 'react-router';
@@ -41,6 +43,10 @@ export default function App() {
           <Route path="/talent-network" element={<TalentNetwork />} />
           <Route path="/intelligence" element={<WorkforceIntelligence />} />
           <Route path="/company" element={<Company />} />
+          <Route path="/insights" element={<Insights />} />
+          <Route path="/blog" element={<Insights />} />
+          <Route path="/insights/:slug" element={<ArticleDetail />} />
+          <Route path="/blog/:slug" element={<ArticleDetail />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/apply" element={<Apply />} />
           <Route path="/resources/request" element={<ResourceRequest />} />

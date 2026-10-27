@@ -102,6 +102,10 @@ export default function Navbar() {
               Company
             </Link>
 
+            <Link to="/insights" className="text-[10px] font-black uppercase tracking-[0.15em] text-slate-700 hover:text-ent-gold transition-colors">
+              Insights
+            </Link>
+
             <Link to="/careers" className="text-[10px] font-black uppercase tracking-[0.15em] text-slate-700 hover:text-ent-gold transition-colors">
               Careers
             </Link>
@@ -156,6 +160,7 @@ export default function Navbar() {
               <Link to="/workforce-operations" onClick={() => setMobileMenuOpen(false)} className="block text-sm font-black uppercase tracking-widest text-slate-900">Workforce Operations</Link>
               <Link to="/talent-network" onClick={() => setMobileMenuOpen(false)} className="block text-sm font-black uppercase tracking-widest text-slate-900">Talent Network</Link>
               <Link to="/company" onClick={() => setMobileMenuOpen(false)} className="block text-sm font-black uppercase tracking-widest text-slate-900">Company</Link>
+              <Link to="/insights" onClick={() => setMobileMenuOpen(false)} className="block text-sm font-black uppercase tracking-widest text-slate-900">Insights</Link>
               <Link to="/careers" onClick={() => setMobileMenuOpen(false)} className="block text-sm font-black uppercase tracking-widest text-slate-900">Careers</Link>
             </div>
 

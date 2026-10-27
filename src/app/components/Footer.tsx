@@ -66,7 +66,7 @@ export default function Footer() {
             <ul className="space-y-4">
               {[
                 { name: 'About VRN', path: '/company' },
-                { name: 'Case Studies', path: '/company' },
+                { name: 'Insights & Blog', path: '/insights' },
                 { name: 'Careers', path: '/careers' },
                 { name: 'Contact', path: '/contact' }
               ].map((link, i) => (
