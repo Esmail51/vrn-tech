@@ -331,8 +331,7 @@ export default function SynergyPopup({ forceOpen, onClose }: SynergyPopupProps) 
                 id="synergy-dialog-desc"
                 className="text-xs sm:text-sm text-slate-300 font-normal leading-relaxed max-w-xl"
               >
-                Data, cloud and AI modernization consulting — plus MSP, VMS and contingent workforce
-                programs built compliance-first for the enterprise.
+                VRN Technologies LLC is a rapidly growing IT consulting and workforce solutions company specializing in enterprise technology services, strategic IT staffing, talent acquisition, and delivering scalable technology solutions to Fortune 500 clients across the United States.
               </p>
 
               {/* Action Buttons */}
